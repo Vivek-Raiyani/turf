@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Booking Requests</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn {
+            padding: 6px 12px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+            margin-right: 5px;
+        }
+        .btn-success {
+            background-color: #28a745;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+        }
+        .btn-info {
+            background-color: #17a2b8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Booking Requests</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>User</th>
+                <th>Facility</th>
+                <th>Slot</th>
+                <th>Status</th>
+                <th>Purpose</th>
+                <th>Date Created</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Example rows -->
+            <tr>
+                <td>1</td>
+                <td>john_doe</td>
+                <td>Basketball Court</td>
+                <td>08:00 AM - 09:00 AM</td>
+                <td>Pending</td>
+                <td>Morning Practice</td>
+                <td>2024-08-20</td>
+                <td>
+                    <a href="#" class="btn btn-success">Approve</a>
+                    <a href="#" class="btn btn-danger">Reject</a>
+                    <a href="#" class="btn btn-info">History</a>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>jane_smith</td>
+                <td>Tennis Court</td>
+                <td>Pending</td>
+                <td>Match with Friends</td>
+                <td>2024-08-21</td>
+                <td>
+                    <a href="#" class="btn btn-success">Approve</a>
+                    <a href="#" class="btn btn-danger">Reject</a>
+                    <a href="#" class="btn btn-info">History</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
+          

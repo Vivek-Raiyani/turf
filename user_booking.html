@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Bookings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>My Bookings</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Facility</th>
+                <th>Slot</th>
+                <th>Status</th>
+                <th>Purpose</th>
+                <th>Date Created</th>
+                <th>Cancelled</th>
+                <th>Reason</th>
+                <th>Payment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Example rows -->
+            <tr>
+                <td>1</td>
+                <td>Basketball Court</td>
+                <td>08:00 AM - 09:00 AM</td>
+                <td>Confirmed</td>
+                <td>Morning Practice</td>
+                <td>2024-08-20</td>
+                <td>No</td>
+                <td>-</td>
+                <td>Paid</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Tennis Court</td>
+                <td>10:00 AM - 11:00 AM</td>
+                <td>Pending</td>
+                <td>Match with Friends</td>
+                <td>2024-08-21</td>
+                <td>No</td>
+                <td>-</td>
+                <td>Unpaid</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
