@@ -1,0 +1,24 @@
+python manage.py runserver ----starting project
+python manage.py makemigrations ---make changes in database
+python manage.py migrate ---- save changes to database
+python manage.py create superuser -- make an admin user
+
+
+models= tables in sql
+
+django MVT architecture-- model views template
+
+templates-- html files
+
+static folder for css, js , images , videos
+
+media folder for user uploded content storage
+
+manage.py is the main file that runs the server 
+
+urls.py --- url pattern to access partivcular page
+
+views  -- connect the urls and html
+
+admin-- username- dharmil
+pass -12345678

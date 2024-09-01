@@ -1,0 +1,150 @@
+{% extends 'templates/sports/base.html'%}
+{% load static %}
+
+{% block extra_css %}
+<style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        
+
+        
+
+        .scrollable-container {
+            overflow: hidden;
+            width: 100%;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+            position: relative;
+        }
+
+        .scrolling-content {
+            display: flex;
+            animation: scroll-left 15s linear infinite;
+        }
+
+        .card {
+            flex: 0 0 auto;
+            width: 200px;
+            margin-right: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #fafafa;
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .card h5 {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #666;
+            padding: 0 10px 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <img src="{% static 'images/22.jpg' %}" alt="img1" class="img-fluid card-img">
+</div>
+
+
+<br>
+<div class="container">
+          <div class="row">
+            <div class="col-md-6">
+                    <img src="{% static 'images/13.jpg' %}" alt="img1" class="img-fluid card-img">
+                    </div>
+            <div class="col-md-6">
+                <div class="container">
+                    <p> facilities</p>
+            </div>
+            </div>
+            <hr>
+            <div class="row">
+            <div class="col-md-6">
+                <div class="container">
+                    <p> services</p>  
+                </div>
+            </div>
+            <div class="col-md-6">
+                    <img src="{% static 'images/22.jpg' %}" alt="img1" class="img-fluid card-img">
+                    </div>
+                    </div>
+
+
+<hr>
+<div class="container">
+
+    <div class="row ">
+        {% for sport in sports %}
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-img-top"><img src="{{ sport.image.url }}" width="100%" alt="Card image cap"></div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ sport.sports }}</h5>
+                    <p class="card-text">{{ sport.sports_type }}</p>
+                    <a href="{% url 'sports:facility' sport.sports %}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<hr>
+<!--
+                    <div class="scrollable-container">
+    <div class="scrolling-content">
+        {% for sport in sports %}
+        <div class="card">
+            <div class="card-img-top">
+                <img src="{% static 'images/1.jpg' %}" width="100%" alt="Card image cap">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ sport.sports }}</h5>
+                <p class="card-text">{{ sport.description }}</p>
+                <a href="{% url "sports:facility" sport.sports %}" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+-->
+{% endblock %}

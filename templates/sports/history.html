@@ -1,0 +1,22 @@
+{% extends 'templates/sports/base.html'%}
+{% load static %}
+
+{% block content %}
+
+          {% for booking in bookings %}
+                    <div class="container">
+                              <p> id </p>
+                              <p> facility</p>
+                              <p> user</p>
+                              <p> booking date</p>
+                              <p> slot</p>
+                              <p> purpose</p>
+                              <p> status</p>
+                              
+                    </div>
+                    <br>
+                    <hr>
+                    <br>
+          {% endfor %}
+
+{% endblock %}

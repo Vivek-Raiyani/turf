@@ -1,0 +1,136 @@
+{% extends 'templates/sports/base.html' %}
+{% load static %}
+{% block title %}{{ facility.name }}{% endblock %}
+
+{% block extra_css %}
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css" rel="stylesheet">
+<style>
+    body {
+        background-color: #f5f5f7;
+        color: #1d1d1f;
+    }
+    .facility-image {
+        border-radius: 18px;
+        overflow: hidden;
+    }
+    .facility-details, .booking-container {
+        background-color: #fff;
+        border-radius: 18px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .time-slot {
+        padding: 10px 15px;
+        margin-bottom: 10px;
+        background-color: #f5f5f7;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .time-slot:hover {
+        background-color: #0071e3;
+        color: #fff;
+    }
+    #calendar {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="display-4 text-center mb-5">{{ facility.name }}</h1>
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="facility-image mb-4">
+                <img src="{{ facility.image1.url }}" alt="{{ facility.name }}" class="img-fluid">
+            </div>
+            <div class="facility-image mb-4">
+            <img src="{{ facility.image2.url }}" alt="{{ facility.name }}" class="img-fluid">
+            </div>
+            <div class="facility-image mb-4">
+            <img src="{{ facility.image3.url }}" alt="{{ facility.name }}" class="img-fluid">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="facility-details p-4 mb-5">
+                <h2 class="h4 mb-3">Facility Details</h2>
+                <p><strong>Type:</strong> {{ facility.type.facility_type }}</p>
+                <p><strong>Location:</strong> {{ facility.location.facility_address }}, {{ facility.location.city }}, {{ facility.location.state }}</p>
+                <p><strong>Capacity:</strong> {{ facility.capacity }} people</p>
+                <p><strong>Manager:</strong> {{ facility.manager }}</p>
+                <p><strong>Available:</strong> {% if facility.available %}Yes{% else %}No{% endif %}</p>
+            </div>
+
+            <div class="booking-container p-4">
+                <h2 class="h4 mb-3">Book This Facility</h2>
+                <div id="calendar"></div>
+                <div id="time-slots" class="mt-4">
+                    <h3 class="h5 mb-3">Available Time Slots</h3>
+                    <p id="selected-date"></p>
+                    <div id="slot-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek'
+            },
+            selectable: true,
+            select: function(info) {
+                fetchTimeSlots(info.startStr);
+            }
+        });
+        calendar.render();
+    });
+
+    function fetchTimeSlots(date) {
+        // Update the selected date display
+        document.getElementById('selected-date').textContent = 'Selected Date: ' + date;
+
+        // In a real application, you would make an AJAX call to your Django backend here
+        // to fetch the available time slots for the selected date.
+        // For this example, we'll use dummy data.
+        var timeSlots = [
+            '09:00 AM - 10:00 AM',
+            '10:00 AM - 11:00 AM',
+            '11:00 AM - 12:00 PM',
+            '01:00 PM - 02:00 PM',
+            '02:00 PM - 03:00 PM'
+        ];
+
+        var slotList = document.getElementById('slot-list');
+        slotList.innerHTML = '';
+
+        timeSlots.forEach(function(slot) {
+            var slotElement = document.createElement('div');
+            slotElement.className = 'time-slot';
+            slotElement.textContent = slot;
+            slotElement.onclick = function() {
+                bookSlot(date, slot);
+            };
+            slotList.appendChild(slotElement);
+        });
+    }
+
+    function bookSlot(date, slot) {
+        // In a real application, you would make an AJAX call to your Django backend here
+        // to book the selected time slot.
+        alert('Booking for ' + date + ' at ' + slot);
+        // After successful booking, you might want to refresh the available time slots
+        // or show a confirmation message.
+    }
+</script>
+{% endblock %}
